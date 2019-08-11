@@ -24,6 +24,7 @@ module.exports = {
 
         const userExists = await Dev.findOne({user: username});
 
+
         if(userExists){
             return res.json(userExists);
         }
@@ -32,7 +33,7 @@ module.exports = {
 
         const { name, bio, avatar_url:avatar } = response.data;
 
-        dev = await Dev.create({
+        const dev = await Dev.create({
             name,
             user: username,
             bio,
